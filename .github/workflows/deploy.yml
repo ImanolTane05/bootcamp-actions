@@ -6,9 +6,18 @@ jobs:
     first_jobs:
         runs-on: ubuntu-latest
 
+        env:
+         NAME: codigofacilito
+
         steps:
-          - name : Hola mundo
-            run: echo "Hola mundo"
+          - name : Working dir
+            run: ls -al
+
+          - name: Action
+            uses: actions/checkout@v4
+
+          - name : Working dir after action
+            run: ls -al
 
     second_job:
         if: ${{github.ref == 'refs/heads/main'}}
